@@ -52,62 +52,56 @@ const books = [
       }]
     
 
-//LIBRO 1
- let card1 = document.createElement('ul');
- let cardT1 = document.createTextNode('Books');
- card1.appendChild(cardT1);
- card1.setAttribute('id', 'paragraph')
- document.querySelector('.section1').appendChild(card1); 
+//Creacion article
+
+let card = document.createElement('article');
+let cardT = document.createTextNode('Books');
+card.appendChild(cardT);
+card.setAttribute('id', 'article')
+document.querySelector('.section1').appendChild(card); 
+
+  //Creacion p
+
+function addP(value){
+    let p = document.createElement('p');
+    let pText = document.createTextNode(value);
+    p.appendChild(pText);
+    return p;
+  }
+
+  //Añadir info
+
+for (let i = 0; i < books.length; i++){
+    let book = books[i];
+
+    card.appendChild(addP(book.author));
+    card.appendChild(addP(book.country));
+    card.appendChild(addP(book.imageLink));
+    card.appendChild(addP(book.language));
+    card.appendChild(addP(book.link));
+    card.appendChild(addP(book.pages));
+    card.appendChild(addP(book.title));
+    card.appendChild(addP(book.year));
+  };
 
 
-    for(let i = 0; i < books.length; i++){
-    
-    let authors = document.createElement('li');
-    let authorsText = document.createTextNode(books[i].author);  
-    authors.appendChild(authorsText);
-    card1.appendChild(authors);
+for (let i = 0; i < books.length; i++) {
+  const book = books[i];
+  card += `
+    <p>${book.author}</p>
+    <p>${book.country}</p>
+    <p>${book.imageLink}</p>
+    <p>${book.language}</p>
+    <p>${book.link}</p>
+    <p>${book.pages}</p>
+    <p>${book.title}</p>
+    <p>${book.year}</p>
+  `;
+}
 
 
-    let countries = document.createElement('li');
-    let countriesText = document.createTextNode(books[i].country);  
-    countries.appendChild(countriesText);
-    card1.appendChild(countries);
-    
-    let imageLinks = document.createElement('li');
-    let imageLinksText = document.createTextNode(books[i].imageLink);  
-    imageLinks.appendChild(imageLinksText);
-    card1.appendChild(imageLinks);
+document.querySelector('.section1').innerHTML += card;
 
-    let languages = document.createElement('li');
-    let languagesText = document.createTextNode(books[i].language);  
-    languages.appendChild(languagesText);
-    card1.appendChild(languages);
-    
-    let links = document.createElement('li');
-    let linksText = document.createTextNode(books[i].link);  
-    links.appendChild(linksText);
-    card1.appendChild(links);
-    
-    let pages = document.createElement('li');
-    let pagesText = document.createTextNode(books[i].pages);  
-    pages.appendChild(pagesText);
-    card1.appendChild(pages);
-    
-    let titles = document.createElement('li');
-    let titlesText = document.createTextNode(books[i].title);  
-    titles.appendChild(titlesText);
-    card1.appendChild(titles);
-    
-    let years = document.createElement('li');
-    let yearsText = document.createTextNode(books[i].year);  
-    years.appendChild(yearsText);
-    card1.appendChild(years);
-    
-
-} 
-
-let book1 = books[0];
-book1.querySelector('.paragraph').appendChild(book1);
 
 
 
